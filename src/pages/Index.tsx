@@ -55,6 +55,9 @@ const Index: React.FC = () => {
           <p className="font-semibold text-slate-700">
             PRAFESTA Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25
           </p>
+          <p className="text-slate-400 text-[11px]">
+            Rua Antônio da Cunha Leite, 615, acesso Rod. Arão Sahm, 80, Portão, Atibaia/SP
+          </p>
           <p className="text-slate-400">
             Plataforma de Assinatura Eletrônica e Treinamentos • Em conformidade com a MP
             2.200-2/2001, Código Civil e LGPD (Lei 13.709/2018)

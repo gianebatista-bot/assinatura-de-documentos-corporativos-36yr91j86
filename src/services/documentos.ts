@@ -118,7 +118,7 @@ export const documentoService = {
       conteudo: data.ementa || '',
       secoes: JSON.stringify(data.secoes || []),
       declaracao_verbatim: data.declaracao_verbatim || '',
-      local_padrao: data.local_padrao || 'Atibaia / Mairiporã',
+      local_padrao: data.local_padrao || 'Atibaia/SP',
       perguntas_quiz: JSON.stringify(data.perguntas_quiz || []),
       ativo: data.ativo ?? true,
       ordem: data.ordem || 99,

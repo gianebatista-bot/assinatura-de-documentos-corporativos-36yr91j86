@@ -417,9 +417,12 @@ export const LoginView: React.FC<LoginModalProps> = () => {
               </div>
             )}
           </CardContent>
-          <CardFooter className="pt-0 pb-4 text-center block">
+          <CardFooter className="pt-0 pb-4 text-center block space-y-0.5">
             <p className="text-[11px] text-slate-400">
               PRAFESTA Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25
+            </p>
+            <p className="text-[10px] text-slate-500">
+              Rua Antônio da Cunha Leite, 615, acesso Rod. Arão Sahm, 80, Portão, Atibaia/SP
             </p>
           </CardFooter>
         </Card>

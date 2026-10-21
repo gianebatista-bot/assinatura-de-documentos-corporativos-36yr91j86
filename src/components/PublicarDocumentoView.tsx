@@ -33,7 +33,7 @@ export const PublicarDocumentoView: React.FC<PublicarDocumentoModalProps> = ({
   const [codigo, setCodigo] = useState(documentoEditando?.codigo || '')
   const [revisao, setRevisao] = useState(documentoEditando?.revisao || 'Rev. 001')
   const [ementa, setEmenta] = useState(documentoEditando?.ementa || '')
-  const [localPadrao, setLocalPadrao] = useState(documentoEditando?.local_padrao || 'Atibaia')
+  const [localPadrao, setLocalPadrao] = useState(documentoEditando?.local_padrao || 'Atibaia/SP')
   const [declaracaoVerbatim, setDeclaracaoVerbatim] = useState(
     documentoEditando?.declaracao_verbatim ||
       'Declaro para todos os fins de direito que recebi, li e compreendi integralmente as diretrizes e normas contidas no presente documento da PRAFESTA, assumindo o compromisso solene de cumpri-las rigorosamente.',
@@ -275,7 +275,7 @@ export const PublicarDocumentoView: React.FC<PublicarDocumentoModalProps> = ({
                 id="local"
                 value={localPadrao}
                 onChange={(e) => setLocalPadrao(e.target.value)}
-                placeholder="Ex: Atibaia / Mairiporã"
+                placeholder="Ex: Atibaia/SP"
               />
             </div>
 

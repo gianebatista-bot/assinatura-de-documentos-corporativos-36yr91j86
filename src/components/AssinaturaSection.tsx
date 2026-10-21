@@ -54,7 +54,7 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
   const isTermoUnificado =
     documento.codigo === 'TU-RH-023' || documento.titulo.toLowerCase().includes('termo unificado')
 
-  const localAtual = documento.local_padrao || 'Atibaia / Mairiporã'
+  const localAtual = documento.local_padrao || 'Atibaia/SP'
   const dataHojeExtenso = new Date().toLocaleDateString('pt-BR', {
     day: 'numeric',
     month: 'long',
