@@ -38,6 +38,7 @@ import {
   gerarHTMLCertificado,
   baixarArquivoHTML,
 } from '@/lib/documentGenerators'
+import { mascararCPF } from '@/lib/utils'
 import {
   FileText,
   Users,
@@ -164,7 +165,7 @@ export const CoordenadoraDashboard: React.FC<CoordenadoraDashboardProps> = ({
       const match =
         item.colaborador.name.toLowerCase().includes(b) ||
         item.colaborador.email.toLowerCase().includes(b) ||
-        (item.colaborador.cargo && item.colaborador.cargo.toLowerCase().includes(b))
+        (item.colaborador.setor && item.colaborador.setor.toLowerCase().includes(b))
       if (!match) return false
     }
     return true
@@ -420,8 +421,12 @@ export const CoordenadoraDashboard: React.FC<CoordenadoraDashboardProps> = ({
                       <TableCell>
                         <div className="font-semibold text-slate-900">{item.colaborador.name}</div>
                         <div className="text-[11px] text-slate-500">
-                          {item.colaborador.cargo || 'Colaborador'} •{' '}
-                          {item.colaborador.setor || 'Geral'}
+                          Setor: <strong>{item.colaborador.setor || 'Geral'}</strong>
+                          {item.colaborador.cpf && (
+                            <span className="ml-2 font-mono text-[10px] text-slate-400">
+                              (CPF: {mascararCPF(item.colaborador.cpf)})
+                            </span>
+                          )}
                         </div>
                         {item.assinatura?.instagram && (
                           <div className="inline-flex items-center gap-1 text-[10px] text-pink-700 bg-pink-50 px-1.5 py-0.5 rounded border border-pink-200 mt-1 font-mono">

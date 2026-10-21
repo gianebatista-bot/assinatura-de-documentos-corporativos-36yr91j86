@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onIrParaHome }) => {
               )}
             </div>
             <div className="text-[11px] text-slate-400">
-              {user.cargo ? `${user.cargo} • ` : ''}
+              {user.setor ? `${user.setor} • ` : ''}
               {user.email}
             </div>
           </div>

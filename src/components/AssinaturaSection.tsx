@@ -26,6 +26,7 @@ import {
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { gerarHTMLDocumentoAssinado, baixarArquivoHTML } from '@/lib/documentGenerators'
+import { mascararCPF } from '@/lib/utils'
 
 interface AssinaturaSectionProps {
   documento: Documento
@@ -162,12 +163,12 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
               <span className="font-semibold text-slate-800">Colaborador:</span> {usuario.name}
             </div>
             <div>
-              <span className="font-semibold text-slate-800">CPF:</span>{' '}
-              {usuario.cpf || 'Cadastrado no RH'}
+              <span className="font-semibold text-slate-800">CPF (LGPD):</span>{' '}
+              {usuario.cpf ? mascararCPF(usuario.cpf) : 'Cadastrado no RH'}
             </div>
             <div>
-              <span className="font-semibold text-slate-800">Cargo / Função:</span>{' '}
-              {usuario.cargo || 'Geral'}
+              <span className="font-semibold text-slate-800">Setor:</span>{' '}
+              {usuario.setor || 'Geral'}
             </div>
             <div>
               <span className="font-semibold text-slate-800">Local e Data:</span> {localAtual},{' '}

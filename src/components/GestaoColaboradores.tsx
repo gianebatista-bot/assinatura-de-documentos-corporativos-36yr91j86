@@ -31,6 +31,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { UserPlus, Search, Edit2, Trash2, Mail, Shield, User as UserIcon } from 'lucide-react'
 import { toast } from 'sonner'
+import { mascararCPF } from '@/lib/utils'
 
 interface GestaoColaboradoresProps {
   usuarios: User[]
@@ -52,7 +53,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('Skip@Pass')
   const [papel, setPapel] = useState<UserRole>('colaborador')
-  const [cargo, setCargo] = useState('')
   const [setor, setSetor] = useState('')
   const [cpf, setCpf] = useState('')
   const [salvando, setSalvando] = useState(false)
@@ -63,7 +63,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
     setEmail('')
     setSenha('Skip@Pass')
     setPapel('colaborador')
-    setCargo('')
     setSetor('')
     setCpf('')
     setModalOpen(true)
@@ -75,7 +74,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
     setEmail(u.email)
     setSenha('')
     setPapel(u.role)
-    setCargo(u.cargo || '')
     setSetor(u.setor || '')
     setCpf(u.cpf || '')
     setModalOpen(true)
@@ -94,7 +92,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
         await authService.updateUser(editandoId, {
           name: nome,
           role: papel,
-          cargo,
           setor,
           cpf,
         })
@@ -109,7 +106,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
           email,
           password: senha,
           role: papel,
-          cargo,
           setor,
           cpf,
         })
@@ -143,7 +139,6 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
     const matchBusca =
       u.name.toLowerCase().includes(busca.toLowerCase()) ||
       u.email.toLowerCase().includes(busca.toLowerCase()) ||
-      (u.cargo && u.cargo.toLowerCase().includes(busca.toLowerCase())) ||
       (u.setor && u.setor.toLowerCase().includes(busca.toLowerCase()))
 
     if (!matchBusca) return false
@@ -158,7 +153,7 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
             <Input
-              placeholder="Buscar por nome, e-mail, cargo..."
+              placeholder="Buscar por nome, e-mail, setor..."
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               className="pl-9 bg-white border-slate-300 text-sm"
@@ -190,8 +185,8 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
           <TableHeader className="bg-slate-50">
             <TableRow>
               <TableHead className="text-xs font-bold text-slate-700">Colaborador</TableHead>
-              <TableHead className="text-xs font-bold text-slate-700">Cargo / Setor</TableHead>
-              <TableHead className="text-xs font-bold text-slate-700">CPF</TableHead>
+              <TableHead className="text-xs font-bold text-slate-700">Setor</TableHead>
+              <TableHead className="text-xs font-bold text-slate-700">CPF (LGPD)</TableHead>
               <TableHead className="text-xs font-bold text-slate-700">Perfil</TableHead>
               <TableHead className="text-xs font-bold text-slate-700 text-right">Ações</TableHead>
             </TableRow>
@@ -213,11 +208,10 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
                     </div>
                   </TableCell>
                   <TableCell className="text-xs text-slate-700">
-                    <div>{u.cargo || '—'}</div>
-                    <div className="text-slate-500 text-[11px]">{u.setor || 'Geral'}</div>
+                    <span className="font-medium">{u.setor || 'Geral'}</span>
                   </TableCell>
                   <TableCell className="text-xs font-mono text-slate-600">
-                    {u.cpf || 'Não informado'}
+                    {u.cpf ? mascararCPF(u.cpf) : 'Não informado'}
                   </TableCell>
                   <TableCell>
                     {u.role === 'coordenadora' ? (
@@ -346,30 +340,16 @@ export const GestaoColaboradores: React.FC<GestaoColaboradoresProps> = ({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <Label htmlFor="cargo" className="text-xs font-semibold">
-                  Cargo
-                </Label>
-                <Input
-                  id="cargo"
-                  value={cargo}
-                  onChange={(e) => setCargo(e.target.value)}
-                  placeholder="Ex: Auxiliar de Produção"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <Label htmlFor="setor" className="text-xs font-semibold">
-                  Setor
-                </Label>
-                <Input
-                  id="setor"
-                  value={setor}
-                  onChange={(e) => setSetor(e.target.value)}
-                  placeholder="Ex: Termoformagem"
-                />
-              </div>
+            <div className="space-y-1">
+              <Label htmlFor="setor" className="text-xs font-semibold">
+                Setor *
+              </Label>
+              <Input
+                id="setor"
+                value={setor}
+                onChange={(e) => setSetor(e.target.value)}
+                placeholder="Ex: Produção, Qualidade, Logística, TI..."
+              />
             </div>
 
             <DialogFooter className="mt-4 gap-2 pt-2">

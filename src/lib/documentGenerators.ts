@@ -1,4 +1,5 @@
 import type { Documento, Assinatura, Treinamento, User } from '@/types'
+import { mascararCPF } from '@/lib/utils'
 
 function formatarDataHoraBR(dataIso: string): string {
   try {
@@ -215,8 +216,8 @@ export function gerarHTMLCertificado(params: {
     <div class="body-text">
       Certificamos para todos os fins de direito e cumprimento de normas regulamentadoras que o(a) colaborador(a)
       <span class="highlight-name">${usuario.name.toUpperCase()}</span>
-      ${usuario.cpf ? `portador(a) do CPF nº <strong>${usuario.cpf}</strong>, ` : ''}
-      ocupante da função de <strong>${usuario.cargo || 'Colaborador(a)'}</strong> no setor de <strong>${usuario.setor || 'Geral'}</strong>,
+      ${usuario.cpf ? `portador(a) do CPF nº <strong>${mascararCPF(usuario.cpf)}</strong>, ` : ''}
+      lotado(a) no setor de <strong>${usuario.setor || 'Geral'}</strong>,
       concluiu com aproveitamento integral a leitura detalhada, o treinamento interativo com avaliação de eficácia e a respectiva formalização eletrônica do documento:
       <br><br>
       <span class="doc-highlight">"${documento.titulo}"</span>
@@ -472,16 +473,16 @@ export function gerarHTMLDocumentoAssinado(params: {
           <span>${assinatura.nome_colaborador || 'Não informado'}</span>
         </div>
         <div class="sig-field">
-          <label>CPF do Colaborador:</label>
-          <span>${assinatura.cpf_colaborador || 'Não informado'}</span>
+          <label>CPF do Colaborador (LGPD):</label>
+          <span>${assinatura.cpf_colaborador ? mascararCPF(assinatura.cpf_colaborador) : 'Não informado'}</span>
         </div>
         <div class="sig-field">
           <label>E-mail do Colaborador:</label>
           <span>${assinatura.email_colaborador || 'Não informado'}</span>
         </div>
         <div class="sig-field">
-          <label>Cargo / Função:</label>
-          <span>${assinatura.cargo_colaborador || 'Não informado'}</span>
+          <label>Setor:</label>
+          <span>${params.usuario?.setor || 'Geral'}</span>
         </div>
         ${
           assinatura.instagram && assinatura.instagram.trim()

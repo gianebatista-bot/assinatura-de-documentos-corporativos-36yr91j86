@@ -24,6 +24,7 @@ import {
   gerarHTMLDocumentoAssinado,
   baixarArquivoHTML,
 } from '@/lib/documentGenerators'
+import { mascararCPF } from '@/lib/utils'
 import {
   FileText,
   CheckCircle2,
@@ -144,11 +145,6 @@ export const ColaboradorDashboard: React.FC<ColaboradorDashboardProps> = ({
             cartilha e formalize suas assinaturas de ciência e conformidade com validade jurídica.
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-4 text-xs text-slate-400">
-            {usuario.cargo && (
-              <span>
-                Cargo: <strong className="text-slate-200">{usuario.cargo}</strong>
-              </span>
-            )}
             {usuario.setor && (
               <span>
                 Setor: <strong className="text-slate-200">{usuario.setor}</strong>
@@ -156,7 +152,8 @@ export const ColaboradorDashboard: React.FC<ColaboradorDashboardProps> = ({
             )}
             {usuario.cpf && (
               <span>
-                CPF: <strong className="text-slate-200">{usuario.cpf}</strong>
+                CPF (LGPD):{' '}
+                <strong className="text-slate-200 font-mono">{mascararCPF(usuario.cpf)}</strong>
               </span>
             )}
           </div>
