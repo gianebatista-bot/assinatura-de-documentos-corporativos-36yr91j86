@@ -29,6 +29,7 @@ import {
   Printer,
 } from 'lucide-react'
 import { toast } from 'sonner'
+import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
 
 interface DocumentoReaderProps {
   documentoId: string
@@ -156,17 +157,20 @@ export const DocumentoReader: React.FC<DocumentoReaderProps> = ({
       {/* Cabeçalho do Documento */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="font-extrabold text-sm tracking-wider text-rose-600 bg-rose-50 border border-rose-200 px-3 py-1 rounded-md">
-              PRAFESTA
-            </span>
+          <div className="flex items-center gap-2.5">
+            <div className="bg-white border border-slate-200 rounded-md px-2 py-1 shadow-xs flex items-center">
+              <img src={prafestaLogo} alt="PRAFESTA" className="h-5 w-auto object-contain" />
+            </div>
             {doc.codigo && (
               <Badge variant="outline" className="font-mono text-xs">
                 {doc.codigo}
               </Badge>
             )}
             {doc.revisao && (
-              <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700">
+              <Badge
+                variant="secondary"
+                className="text-xs bg-slate-100 text-slate-700 font-medium"
+              >
                 {doc.revisao}
               </Badge>
             )}

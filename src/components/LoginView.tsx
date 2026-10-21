@@ -21,8 +21,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { FileText, Lock, Mail, ShieldAlert, CheckCircle2, UserCheck } from 'lucide-react'
+import { Lock, Mail, ShieldAlert, CheckCircle2, UserCheck } from 'lucide-react'
 import { toast } from 'sonner'
+import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
 
 interface LoginModalProps {
   onSuccess?: () => void
@@ -93,14 +94,14 @@ export const LoginView: React.FC<LoginModalProps> = () => {
       <div className="w-full max-w-md">
         {/* Logo / Header PRAFESTA */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center p-3 bg-rose-600/20 text-rose-500 rounded-2xl mb-3 border border-rose-500/30">
-            <FileText className="w-10 h-10 text-rose-500" />
+          <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl mb-4 border border-rose-100 shadow-xl">
+            <img src={prafestaLogo} alt="PRAFESTA" className="h-10 w-auto object-contain" />
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white flex items-center justify-center gap-2">
-            PRA<span className="text-rose-500">FESTA</span>
+          <h1 className="text-2xl font-extrabold tracking-tight text-white">
+            Portal de Assinatura Corporativa
           </h1>
-          <p className="text-sm text-slate-300 mt-1 font-medium">
-            Assinatura e Treinamento de Documentos Corporativos
+          <p className="text-xs text-slate-300 mt-1 font-medium">
+            Documentos Normativos, Treinamentos & Termos de Adesão
           </p>
         </div>
 

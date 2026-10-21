@@ -2,7 +2,8 @@ import React from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { FileText, LogOut, Shield, User as UserIcon } from 'lucide-react'
+import { LogOut, Shield, User as UserIcon } from 'lucide-react'
+import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
 
 interface NavbarProps {
   onIrParaHome?: () => void
@@ -19,14 +20,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onIrParaHome }) => {
         {/* Brand */}
         <button
           onClick={onIrParaHome}
-          className="flex items-center gap-2.5 text-left focus:outline-none group"
+          className="flex items-center gap-3 text-left focus:outline-none group"
         >
-          <div className="p-2 bg-rose-600 rounded-lg group-hover:bg-rose-500 transition-colors">
-            <FileText className="w-5 h-5 text-white" />
+          <div className="h-9 px-2 bg-white/95 rounded-lg flex items-center justify-center border border-white/20 shadow-sm group-hover:bg-white transition-colors">
+            <img src={prafestaLogo} alt="PRAFESTA" className="h-6 w-auto object-contain" />
           </div>
           <div>
-            <div className="font-extrabold text-lg tracking-tight leading-none">
-              PRA<span className="text-rose-500">FESTA</span>
+            <div className="font-extrabold text-base tracking-tight leading-none text-white">
+              PRAFESTA <span className="text-rose-400 text-xs font-semibold">Docs</span>
             </div>
             <div className="text-[10px] text-slate-400 font-medium tracking-wide uppercase mt-0.5">
               Assinatura de Documentos Corporativos

@@ -37,6 +37,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { toast } from 'sonner'
+import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
 
 interface ColaboradorDashboardProps {
   usuario: User
@@ -126,8 +127,13 @@ export const ColaboradorDashboard: React.FC<ColaboradorDashboardProps> = ({
       {/* Banner de Boas-Vindas */}
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-rose-950 rounded-2xl p-6 md:p-8 text-white shadow-lg relative overflow-hidden">
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-rose-500/30">
-            <Building className="w-3.5 h-3.5" /> Portal do Colaborador PRAFESTA
+          <div className="flex items-center gap-3 mb-3">
+            <div className="bg-white/95 rounded-lg px-2.5 py-1 inline-flex items-center shadow-sm">
+              <img src={prafestaLogo} alt="PRAFESTA" className="h-5 w-auto object-contain" />
+            </div>
+            <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 px-3 py-1 rounded-full text-xs font-semibold border border-rose-500/30">
+              <Building className="w-3.5 h-3.5" /> Portal do Colaborador
+            </div>
           </div>
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
             Olá, {usuario.name}!

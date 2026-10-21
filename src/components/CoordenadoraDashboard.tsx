@@ -53,6 +53,7 @@ import {
   FileCheck2,
 } from 'lucide-react'
 import { toast } from 'sonner'
+import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
 
 interface CoordenadoraDashboardProps {
   usuario: User
@@ -221,8 +222,13 @@ export const CoordenadoraDashboard: React.FC<CoordenadoraDashboardProps> = ({
       {/* Banner da Coordenação */}
       <div className="bg-gradient-to-r from-slate-900 via-rose-950 to-slate-900 rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-rose-500/30">
-            <FileCheck2 className="w-3.5 h-3.5" /> Painel de Gestão & Conformidade PRAFESTA
+          <div className="flex items-center gap-3 mb-3">
+            <div className="bg-white/95 rounded-lg px-2.5 py-1 inline-flex items-center shadow-sm">
+              <img src={prafestaLogo} alt="PRAFESTA" className="h-5 w-auto object-contain" />
+            </div>
+            <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 px-3 py-1 rounded-full text-xs font-semibold border border-rose-500/30">
+              <FileCheck2 className="w-3.5 h-3.5" /> Painel de Gestão & Conformidade
+            </div>
           </div>
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
             Gestão de Documentos e Assinaturas
