@@ -309,10 +309,10 @@ export const ColaboradorDashboard: React.FC<ColaboradorDashboardProps> = ({
 
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                       <span>
-                        Rev: <strong>{doc.revisao || '01'}</strong>
+                        Rev: <strong>{doc.revisao || 'Edição 2026'}</strong>
                       </span>
                       <span>
-                        Pub: <strong>{doc.data_publicacao || '2026'}</strong>
+                        Data Base: <strong>{doc.data_publicacao || 'Janeiro de 2026'}</strong>
                       </span>
                     </div>
 

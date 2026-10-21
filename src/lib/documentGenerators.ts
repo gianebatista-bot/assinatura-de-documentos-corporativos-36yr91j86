@@ -437,7 +437,7 @@ export function gerarHTMLDocumentoAssinado(params: {
       <div class="doc-meta">
         <div><strong>Código:</strong> ${documento.codigo || 'DOC-PRAFESTA'}</div>
         <div><strong>Revisão:</strong> ${documento.revisao || 'Única'}</div>
-        <div><strong>Data Base:</strong> ${documento.data_publicacao || '2026'}</div>
+        <div><strong>Data Base:</strong> ${documento.data_publicacao || 'Janeiro de 2026'}</div>
       </div>
     </div>
 

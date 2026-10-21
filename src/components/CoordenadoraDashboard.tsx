@@ -575,10 +575,10 @@ export const CoordenadoraDashboard: React.FC<CoordenadoraDashboardProps> = ({
                         Rev: <strong>{d.revisao || '—'}</strong>
                       </span>
                       <span>
-                        Seções: <strong>{d.secoes?.length || 0}</strong>
+                        Data Base: <strong>{d.data_publicacao || '2026'}</strong>
                       </span>
                       <span>
-                        Perguntas: <strong>{d.perguntas_quiz?.length || 0}</strong>
+                        Seções: <strong>{d.secoes?.length || 0}</strong>
                       </span>
                     </div>
                   </CardContent>

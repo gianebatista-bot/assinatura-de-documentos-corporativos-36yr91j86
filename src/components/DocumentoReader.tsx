@@ -179,7 +179,7 @@ export const DocumentoReader: React.FC<DocumentoReaderProps> = ({
           <div className="flex items-center gap-3 text-xs text-slate-500">
             {doc.data_publicacao && (
               <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" /> {doc.data_publicacao}
+                <Calendar className="w-3.5 h-3.5" /> Data Base: {doc.data_publicacao}
               </span>
             )}
             <span className="flex items-center gap-1">
