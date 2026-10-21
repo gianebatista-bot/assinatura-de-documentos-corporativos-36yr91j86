@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LogOut, Shield, User as UserIcon } from 'lucide-react'
 import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
+import { InstallAppButton } from '@/components/InstallAppButton'
 
 interface NavbarProps {
   onIrParaHome?: () => void
@@ -36,7 +37,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onIrParaHome }) => {
         </button>
 
         {/* User profile & actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <InstallAppButton variant="navbar" />
           <div className="hidden sm:flex flex-col text-right">
             <div className="text-xs font-semibold text-white flex items-center gap-1.5 justify-end">
               {user.name}

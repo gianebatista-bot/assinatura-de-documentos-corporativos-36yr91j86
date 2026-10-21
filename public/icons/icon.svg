@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#881337" />
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#fff1f2" />
+    </linearGradient>
+    <linearGradient id="roseAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background container -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
+
+  <!-- Outer subtle glowing ring -->
+  <rect x="24" y="24" width="464" height="464" rx="90" fill="none" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="3" />
+
+  <!-- Center Card Badge (White) -->
+  <g filter="url(#shadow)">
+    <rect x="56" y="80" width="400" height="352" rx="44" fill="url(#badgeGrad)" stroke="#ffe4e6" stroke-width="4" />
+  </g>
+
+  <!-- Header Accent Line on White Card -->
+  <path d="M96 116 h320" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" stroke-opacity="0.2" />
+
+  <!-- PRAFESTA Brand Typography & Emblem -->
+  <!-- Stylized Heart / Ribbon Bowl Emblem -->
+  <g transform="translate(256, 175) scale(0.95)">
+    <!-- Festapack / PraFesta Heart Arc Ribbon Shape -->
+    <path d="M-42 -10 C-42 -38, -12 -44, 0 -24 C12 -44, 42 -38, 42 -10 C42 22, 10 44, 0 54 C-10 44, -42 22, -42 -10 Z" fill="url(#roseAccent)" />
+    <!-- White inner heart twinkle -->
+    <path d="M-18 -8 C-18 -22, -6 -25, 0 -15 C6 -25, 18 -22, 18 -8 C18 8, 4 20, 0 25 C-4 20, -18 8, -18 -8 Z" fill="#ffffff" />
+  </g>
+
+  <!-- Wordmark "PRAFESTA" -->
+  <text x="256" y="286"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+        font-size="44"
+        font-weight="900"
+        letter-spacing="1"
+        fill="#e11d48"
+        text-anchor="middle">
+    PRAFESTA
+  </text>
+
+  <!-- Subtitle Pill "DOCS • ASSINATURA" -->
+  <g transform="translate(136, 320)">
+    <rect x="0" y="0" width="240" height="38" rx="19" fill="#0f172a" />
+    <text x="120" y="24"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif"
+          font-size="14"
+          font-weight="800"
+          letter-spacing="2"
+          fill="#f43f5e"
+          text-anchor="middle">
+      PORTAL DOCS
+    </text>
+  </g>
+
+  <!-- Official Tag / Normativas -->
+  <text x="256" y="386"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-size="13"
+        font-weight="700"
+        letter-spacing="1.5"
+        fill="#64748b"
+        text-anchor="middle">
+    DOCUMENTOS CORPORATIVOS
+  </text>
+
+  <!-- Small Bottom Security Lock / Shield Indicator -->
+  <g transform="translate(256, 466) scale(0.85)" opacity="0.8">
+    <circle cx="0" cy="0" r="14" fill="#e11d48" />
+    <path d="M-5 -2 v-4 a5 5 0 0 1 10 0 v4 h2 v8 h-14 v-8 Z M-3 -2 h6 v-4 a3 3 0 0 0 -6 0 Z" fill="#ffffff" />
+  </g>
+</svg>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRAFESTA — Sem Conexão</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #881337 100%);
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(225, 29, 72, 0.3);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        max-width: 440px;
+        width: 100%;
+        border-radius: 20px;
+        padding: 36px 28px;
+        text-align: center;
+      }
+      .badge-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 16px;
+        background: #ffffff;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.3);
+      }
+      .badge-icon img {
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+      }
+      h1 {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+      .subtitle {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fda4af;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+      .notice-box {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(244, 63, 94, 0.2);
+        border-radius: 12px;
+        padding: 14px;
+        margin: 16px 0;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #cbd5e1;
+        text-align: left;
+      }
+      .notice-box strong {
+        color: #f43f5e;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .btn-retry {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: #e11d48;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 8px;
+        transition: background 0.2s;
+      }
+      .btn-retry:hover {
+        background: #be123c;
+      }
+      .footer-text {
+        margin-top: 24px;
+        font-size: 10px;
+        color: #64748b;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="badge-icon">
+        <img src="/icons/icon-192x192.png" alt="PRAFESTA" />
+      </div>
+      <div class="subtitle">PRAFESTA • Assinatura de Documentos</div>
+      <h1>Você está offline</h1>
+
+      <div class="notice-box">
+        <strong>Conexão Obrigatória</strong>
+        O aplicativo corporativo da PRAFESTA foi instalado com sucesso, porém o acesso ao sistema, a
+        consulta de documentos e a assinatura eletrônica exigem conexão ativa com a internet por
+        motivos de segurança jurídica e validade probatória.
+      </div>
+
+      <button class="btn-retry" onclick="window.location.reload()">Tentar Reconectar Agora</button>
+
+      <div class="footer-text">
+        PRAFESTA Indústria e Comércio de Embalagens Ltda.<br />
+        CNPJ 56.173.131/0001-25 • Atibaia/SP
+      </div>
+    </div>
+  </body>
+</html>

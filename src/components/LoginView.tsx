@@ -35,6 +35,7 @@ import {
 } from 'lucide-react'
 import { toast } from 'sonner'
 import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
+import { InstallAppButton } from '@/components/InstallAppButton'
 
 interface LoginModalProps {
   onSuccess?: () => void
@@ -417,8 +418,9 @@ export const LoginView: React.FC<LoginModalProps> = () => {
               </div>
             )}
           </CardContent>
-          <CardFooter className="pt-0 pb-4 text-center block space-y-0.5">
-            <p className="text-[11px] text-slate-400">
+          <CardFooter className="pt-0 pb-4 text-center block space-y-1">
+            <InstallAppButton variant="login" />
+            <p className="text-[11px] text-slate-400 pt-1">
               PRAFESTA Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25
             </p>
             <p className="text-[10px] text-slate-500">

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#881337" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#favBg)" />
+  <rect x="6" y="8" width="52" height="48" rx="8" fill="#ffffff" stroke="#ffe4e6" stroke-width="1.5" />
+  <!-- Heart Emblem -->
+  <path d="M32 18 C30 14, 25 13, 22 16 C18 20, 20 25, 32 33 C44 25, 46 20, 42 16 C39 13, 34 14, 32 18 Z" fill="#e11d48" />
+  <!-- Prafesta initial "P" -->
+  <text x="32" y="48" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">
+    P
+  </text>
+</svg>
