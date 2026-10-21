@@ -27,7 +27,6 @@ import {
   Mail,
   ShieldAlert,
   CheckCircle2,
-  UserCheck,
   UserPlus,
   LogIn,
   User,
@@ -134,12 +133,6 @@ export const LoginView: React.FC<LoginModalProps> = () => {
     } finally {
       setCadLoading(false)
     }
-  }
-
-  const handlePreencherTeste = (userEmail: string) => {
-    setEmail(userEmail)
-    setPassword('Skip@Pass')
-    setActiveTab('login')
   }
 
   const handleRecuperarSenha = async (e: React.FormEvent) => {
@@ -285,54 +278,6 @@ export const LoginView: React.FC<LoginModalProps> = () => {
                     {loading ? 'Entrando...' : 'Entrar no Portal'}
                   </Button>
                 </form>
-
-                {/* Acesso rápido para testes com os perfis do plano */}
-                <div className="mt-6 pt-5 border-t border-slate-800">
-                  <div className="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
-                    <UserCheck className="w-3.5 h-3.5 text-rose-400" />
-                    Contas de teste para homologação rápida:
-                  </div>
-                  <div className="grid grid-cols-1 gap-1.5 text-xs">
-                    <button
-                      type="button"
-                      onClick={() => handlePreencherTeste('adv.gianebatista@gmail.com')}
-                      className="flex items-center justify-between p-2 rounded bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/60 transition-colors text-left"
-                    >
-                      <span className="font-medium text-rose-300">
-                        Giane Batista (Coordenadora RH)
-                      </span>
-                      <span className="text-[10px] text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded">
-                        Preencher
-                      </span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handlePreencherTeste('carlos.producao@prafesta.com.br')}
-                      className="flex items-center justify-between p-2 rounded bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/60 transition-colors text-left"
-                    >
-                      <span className="font-medium">Carlos Eduardo (Colaborador - Produção)</span>
-                      <span className="text-[10px] text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded">
-                        Preencher
-                      </span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handlePreencherTeste('fernanda.qualidade@prafesta.com.br')}
-                      className="flex items-center justify-between p-2 rounded bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/60 transition-colors text-left"
-                    >
-                      <span className="font-medium">Fernanda Lima (Colaboradora - Qualidade)</span>
-                      <span className="text-[10px] text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded">
-                        Preencher
-                      </span>
-                    </button>
-                  </div>
-                  <div className="text-[11px] text-slate-400 mt-2 text-center">
-                    Senha padrão para testes:{' '}
-                    <code className="text-rose-400 bg-slate-950 px-1.5 py-0.5 rounded">
-                      Skip@Pass
-                    </code>
-                  </div>
-                </div>
               </div>
             ) : (
               <div>
