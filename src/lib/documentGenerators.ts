@@ -202,7 +202,7 @@ export function gerarHTMLCertificado(params: {
     <div class="header">
       <div>
         <div class="brand">PRAFESTA</div>
-        <div class="brand-sub">Indústria e Comércio de Embalagens Ltda. • CNPJ 55.772.580/0001-92</div>
+        <div class="brand-sub">Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25</div>
       </div>
       <div class="doc-badge">Programa de Compliance & Integração</div>
     </div>
@@ -429,7 +429,7 @@ export function gerarHTMLDocumentoAssinado(params: {
     <div class="header">
       <div>
         <div class="company">PRAFESTA</div>
-        <div class="company-sub">Prafesta Indústria e Comércio de Embalagens Ltda. • CNPJ 55.772.580/0001-92</div>
+        <div class="company-sub">Prafesta Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25</div>
       </div>
       <div class="doc-meta">
         <div><strong>Código:</strong> ${documento.codigo || 'DOC-PRAFESTA'}</div>

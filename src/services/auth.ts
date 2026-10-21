@@ -113,6 +113,21 @@ export const authService = {
     }
   },
 
+  async registerColaborador(data: {
+    email: string
+    password: string
+    name: string
+    cpf?: string
+    cargo?: string
+    setor?: string
+  }): Promise<User> {
+    // Forçar estritamente o papel "colaborador" para impedir criação de conta de coordenadora
+    return this.createUser({
+      ...data,
+      role: 'colaborador',
+    })
+  },
+
   async updateUser(
     id: string,
     data: Partial<{

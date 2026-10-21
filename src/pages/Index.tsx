@@ -53,7 +53,7 @@ const Index: React.FC = () => {
       <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
         <div className="container mx-auto px-4 space-y-1">
           <p className="font-semibold text-slate-700">
-            PRAFESTA Indústria e Comércio de Embalagens Ltda. • CNPJ 55.772.580/0001-92
+            PRAFESTA Indústria e Comércio de Embalagens Ltda. • CNPJ 56.173.131/0001-25
           </p>
           <p className="text-slate-400">
             Plataforma de Assinatura Eletrônica e Treinamentos • Em conformidade com a MP
