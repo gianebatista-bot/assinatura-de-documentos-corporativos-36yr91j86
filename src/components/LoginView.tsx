@@ -31,7 +31,6 @@ import {
   UserPlus,
   LogIn,
   User,
-  Briefcase,
   Building2,
   CreditCard,
 } from 'lucide-react'
@@ -58,7 +57,6 @@ export const LoginView: React.FC<LoginModalProps> = () => {
   const [cadPassword, setCadPassword] = useState('')
   const [cadPasswordConfirm, setCadPasswordConfirm] = useState('')
   const [cadCpf, setCadCpf] = useState('')
-  const [cadCargo, setCadCargo] = useState('')
   const [cadSetor, setCadSetor] = useState('')
   const [cadLoading, setCadLoading] = useState(false)
   const [cadError, setCadError] = useState('')
@@ -120,7 +118,6 @@ export const LoginView: React.FC<LoginModalProps> = () => {
         email: cadEmail.trim(),
         password: cadPassword,
         cpf: cadCpf.trim(),
-        cargo: cadCargo.trim(),
         setor: cadSetor.trim(),
       })
 
@@ -410,37 +407,19 @@ export const LoginView: React.FC<LoginModalProps> = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="space-y-1">
-                      <Label htmlFor="cad-cargo" className="text-xs text-slate-300">
-                        Cargo
-                      </Label>
-                      <div className="relative">
-                        <Briefcase className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
-                        <Input
-                          id="cad-cargo"
-                          placeholder="Operador, Auxiliar..."
-                          value={cadCargo}
-                          onChange={(e) => setCadCargo(e.target.value)}
-                          className="pl-9 bg-slate-800/80 border-slate-700 text-white placeholder:text-slate-500 text-xs focus-visible:ring-rose-500"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-1">
-                      <Label htmlFor="cad-setor" className="text-xs text-slate-300">
-                        Setor
-                      </Label>
-                      <div className="relative">
-                        <Building2 className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
-                        <Input
-                          id="cad-setor"
-                          placeholder="Produção, Logística..."
-                          value={cadSetor}
-                          onChange={(e) => setCadSetor(e.target.value)}
-                          className="pl-9 bg-slate-800/80 border-slate-700 text-white placeholder:text-slate-500 text-xs focus-visible:ring-rose-500"
-                        />
-                      </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="cad-setor" className="text-xs text-slate-300">
+                      Setor
+                    </Label>
+                    <div className="relative">
+                      <Building2 className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                      <Input
+                        id="cad-setor"
+                        placeholder="Produção, Logística, Administrativo..."
+                        value={cadSetor}
+                        onChange={(e) => setCadSetor(e.target.value)}
+                        className="pl-9 bg-slate-800/80 border-slate-700 text-white placeholder:text-slate-500 text-sm focus-visible:ring-rose-500"
+                      />
                     </div>
                   </div>
 
