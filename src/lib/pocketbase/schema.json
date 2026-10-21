@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T17:58:13.793Z",
+  "generatedAt": "2026-10-21T18:22:59.581Z",
   "collections": [
     {
       "name": "users",
@@ -29,21 +29,29 @@
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate"]
+          "autodateTriggers": [
+            "onCreate"
+          ]
         },
         {
           "name": "updated",
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate", "onUpdate"]
+          "autodateTriggers": [
+            "onCreate",
+            "onUpdate"
+          ]
         },
         {
           "name": "role",
           "type": "select",
           "required": false,
           "system": false,
-          "selectValues": ["coordenadora", "colaborador"]
+          "selectValues": [
+            "coordenadora",
+            "colaborador"
+          ]
         },
         {
           "name": "cpf",
@@ -163,17 +171,24 @@
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate"]
+          "autodateTriggers": [
+            "onCreate"
+          ]
         },
         {
           "name": "updated",
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate", "onUpdate"]
+          "autodateTriggers": [
+            "onCreate",
+            "onUpdate"
+          ]
         }
       ],
-      "indexes": ["CREATE INDEX idx_docs_ativo ON documentos (ativo, ordem)"]
+      "indexes": [
+        "CREATE INDEX idx_docs_ativo ON documentos (ativo, ordem)"
+      ]
     },
     {
       "name": "assinaturas",
@@ -253,14 +268,19 @@
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate"]
+          "autodateTriggers": [
+            "onCreate"
+          ]
         },
         {
           "name": "updated",
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate", "onUpdate"]
+          "autodateTriggers": [
+            "onCreate",
+            "onUpdate"
+          ]
         },
         {
           "name": "instagram",
@@ -269,7 +289,9 @@
           "system": false
         }
       ],
-      "indexes": ["CREATE INDEX idx_ass_colab_doc ON assinaturas (colaborador, documento)"]
+      "indexes": [
+        "CREATE INDEX idx_ass_colab_doc ON assinaturas (colaborador, documento)"
+      ]
     },
     {
       "name": "treinamentos",
@@ -343,17 +365,24 @@
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate"]
+          "autodateTriggers": [
+            "onCreate"
+          ]
         },
         {
           "name": "updated",
           "type": "autodate",
           "required": false,
           "system": false,
-          "autodateTriggers": ["onCreate", "onUpdate"]
+          "autodateTriggers": [
+            "onCreate",
+            "onUpdate"
+          ]
         }
       ],
-      "indexes": ["CREATE INDEX idx_trein_colab_doc ON treinamentos (colaborador, documento)"]
+      "indexes": [
+        "CREATE INDEX idx_trein_colab_doc ON treinamentos (colaborador, documento)"
+      ]
     }
   ]
 }
