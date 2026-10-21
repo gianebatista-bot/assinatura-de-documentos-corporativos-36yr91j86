@@ -483,6 +483,15 @@ export function gerarHTMLDocumentoAssinado(params: {
           <label>Cargo / Função:</label>
           <span>${assinatura.cargo_colaborador || 'Não informado'}</span>
         </div>
+        ${
+          assinatura.instagram && assinatura.instagram.trim()
+            ? `
+        <div class="sig-field">
+          <label>Conta do Instagram:</label>
+          <span style="color: #be185d; font-weight: 700;">${assinatura.instagram.trim()}</span>
+        </div>`
+            : ''
+        }
         <div class="sig-field">
           <label>Data e Horário da Assinatura:</label>
           <span>${dataAssinaturaBR}</span>

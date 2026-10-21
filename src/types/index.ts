@@ -66,6 +66,7 @@ export interface Assinatura {
   cpf_colaborador?: string
   email_colaborador?: string
   cargo_colaborador?: string
+  instagram?: string
   termo_assinado_texto?: string
   metadados?: MetadadosAssinatura
   expand?: {

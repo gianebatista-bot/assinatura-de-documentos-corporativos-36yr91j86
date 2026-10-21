@@ -31,6 +31,7 @@ export const assinaturaService = {
       cpf_colaborador: r.cpf_colaborador || '',
       email_colaborador: r.email_colaborador || '',
       cargo_colaborador: r.cargo_colaborador || '',
+      instagram: r.instagram || '',
       termo_assinado_texto: r.termo_assinado_texto || '',
       metadados: parseJsonField<MetadadosAssinatura>(r.metadados, {}),
       created: r.created,
@@ -54,6 +55,7 @@ export const assinaturaService = {
       cpf_colaborador: r.cpf_colaborador || '',
       email_colaborador: r.email_colaborador || '',
       cargo_colaborador: r.cargo_colaborador || '',
+      instagram: r.instagram || '',
       termo_assinado_texto: r.termo_assinado_texto || '',
       metadados: parseJsonField<MetadadosAssinatura>(r.metadados, {}),
       created: r.created,
@@ -76,6 +78,7 @@ export const assinaturaService = {
       cpf_colaborador: r.cpf_colaborador || '',
       email_colaborador: r.email_colaborador || '',
       cargo_colaborador: r.cargo_colaborador || '',
+      instagram: r.instagram || '',
       termo_assinado_texto: r.termo_assinado_texto || '',
       metadados: parseJsonField<MetadadosAssinatura>(r.metadados, {}),
       created: r.created,
@@ -98,6 +101,7 @@ export const assinaturaService = {
         cpf_colaborador: r.cpf_colaborador || '',
         email_colaborador: r.email_colaborador || '',
         cargo_colaborador: r.cargo_colaborador || '',
+        instagram: r.instagram || '',
         termo_assinado_texto: r.termo_assinado_texto || '',
         metadados: parseJsonField<MetadadosAssinatura>(r.metadados, {}),
         created: r.created,
@@ -115,6 +119,7 @@ export const assinaturaService = {
     cpfColaborador: string
     emailColaborador: string
     cargoColaborador: string
+    instagram?: string
     termoTexto: string
     metadados?: MetadadosAssinatura
   }): Promise<Assinatura> {
@@ -130,7 +135,7 @@ export const assinaturaService = {
       ...data.metadados,
     }
 
-    const payload = {
+    const payload: Record<string, unknown> = {
       colaborador: data.colaboradorId,
       documento: data.documentoId,
       data_hora: nowIso,
@@ -141,6 +146,10 @@ export const assinaturaService = {
       cargo_colaborador: data.cargoColaborador,
       termo_assinado_texto: data.termoTexto,
       metadados: JSON.stringify(metadados),
+    }
+
+    if (data.instagram !== undefined) {
+      payload.instagram = data.instagram.trim()
     }
 
     const r = await pb.collection('assinaturas').create(payload)
@@ -154,6 +163,7 @@ export const assinaturaService = {
       cpf_colaborador: r.cpf_colaborador || '',
       email_colaborador: r.email_colaborador || '',
       cargo_colaborador: r.cargo_colaborador || '',
+      instagram: r.instagram || '',
       termo_assinado_texto: r.termo_assinado_texto || '',
       metadados,
       created: r.created,

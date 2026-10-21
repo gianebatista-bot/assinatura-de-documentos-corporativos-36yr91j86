@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import {
   CheckCircle2,
@@ -18,6 +20,7 @@ import {
   PenLine,
   FileCheck,
   Lock,
+  Instagram,
   Download,
   AlertTriangle,
 } from 'lucide-react'
@@ -44,6 +47,11 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
   const [concordou, setConcordou] = useState(Boolean(assinaturaExistente))
   const [assinando, setAssinando] = useState(false)
   const [assinatura, setAssinatura] = useState<Assinatura | null>(assinaturaExistente || null)
+  const [instagram, setInstagram] = useState(assinaturaExistente?.instagram || '')
+
+  // O campo de Instagram aparece APENAS no Termo Unificado (código TU-RH-023 ou título correspondente)
+  const isTermoUnificado =
+    documento.codigo === 'TU-RH-023' || documento.titulo.toLowerCase().includes('termo unificado')
 
   const localAtual = documento.local_padrao || 'Atibaia / Mairiporã'
   const dataHojeExtenso = new Date().toLocaleDateString('pt-BR', {
@@ -60,6 +68,8 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
 
     try {
       setAssinando(true)
+      const instagramValue = isTermoUnificado && instagram.trim() ? instagram.trim() : undefined
+
       const res = await assinaturaService.create({
         colaboradorId: usuario.id,
         documentoId: documento.id,
@@ -67,6 +77,7 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
         cpfColaborador: usuario.cpf || '',
         emailColaborador: usuario.email,
         cargoColaborador: usuario.cargo || '',
+        instagram: instagramValue,
         termoTexto: documento.declaracao_verbatim || '',
         metadados: {
           ip: 'Client Web',
@@ -162,12 +173,49 @@ export const AssinaturaSection: React.FC<AssinaturaSectionProps> = ({
               <span className="font-semibold text-slate-800">Local e Data:</span> {localAtual},{' '}
               {dataHojeExtenso}
             </div>
+            {assinatura?.instagram && (
+              <div className="md:col-span-2 flex items-center gap-1.5 text-pink-700 bg-pink-50 p-2 rounded border border-pink-200">
+                <Instagram className="w-3.5 h-3.5 text-pink-600" />
+                <span className="font-semibold">Conta do Instagram informada:</span>{' '}
+                <span className="font-mono">{assinatura.instagram}</span>
+              </div>
+            )}
           </div>
         </CardContent>
 
         <CardFooter className="flex flex-col items-start gap-4 bg-slate-50 border-t pt-5">
           {!assinatura ? (
             <>
+              {/* Campo opcional de Instagram - APENAS no Termo Unificado */}
+              {isTermoUnificado && (
+                <div className="w-full p-3.5 bg-gradient-to-r from-pink-50/70 to-rose-50/70 rounded-lg border border-pink-200/80 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Instagram className="w-4 h-4 text-pink-600" />
+                    <Label
+                      htmlFor="instagram-input"
+                      className="text-xs font-bold text-slate-800 cursor-pointer"
+                    >
+                      Conta do Instagram (opcional)
+                    </Label>
+                  </div>
+                  <p className="text-[11px] text-slate-600 leading-tight">
+                    Para colaboradores que possuem perfil no Instagram e desejam vincular à
+                    assinatura do Termo Unificado (política de mídia social e imagem corporativa).
+                  </p>
+                  <div className="max-w-md">
+                    <Input
+                      id="instagram-input"
+                      type="text"
+                      placeholder="@seu.usuario"
+                      value={instagram}
+                      onChange={(e) => setInstagram(e.target.value)}
+                      disabled={assinando}
+                      className="bg-white border-pink-300 text-xs focus-visible:ring-pink-500"
+                    />
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-start space-x-3 p-3 bg-white rounded-lg border border-slate-200 w-full">
                 <Checkbox
                   id="concordo-check"

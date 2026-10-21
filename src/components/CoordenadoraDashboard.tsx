@@ -51,6 +51,7 @@ import {
   Edit3,
   TrendingUp,
   FileCheck2,
+  Instagram,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
@@ -422,6 +423,12 @@ export const CoordenadoraDashboard: React.FC<CoordenadoraDashboardProps> = ({
                           {item.colaborador.cargo || 'Colaborador'} •{' '}
                           {item.colaborador.setor || 'Geral'}
                         </div>
+                        {item.assinatura?.instagram && (
+                          <div className="inline-flex items-center gap-1 text-[10px] text-pink-700 bg-pink-50 px-1.5 py-0.5 rounded border border-pink-200 mt-1 font-mono">
+                            <Instagram className="w-3 h-3 text-pink-600" />
+                            {item.assinatura.instagram}
+                          </div>
+                        )}
                       </TableCell>
 
                       <TableCell>

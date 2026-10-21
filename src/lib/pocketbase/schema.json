@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T17:41:54.117Z",
+  "generatedAt": "2026-10-21T17:58:13.793Z",
   "collections": [
     {
       "name": "users",
@@ -261,6 +261,12 @@
           "required": false,
           "system": false,
           "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "instagram",
+          "type": "text",
+          "required": false,
+          "system": false
         }
       ],
       "indexes": ["CREATE INDEX idx_ass_colab_doc ON assinaturas (colaborador, documento)"]

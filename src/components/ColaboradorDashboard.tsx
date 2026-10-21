@@ -35,6 +35,7 @@ import {
   AlertCircle,
   Building,
   ShieldCheck,
+  Instagram,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import prafestaLogo from '@/assets/logo.582f8581-2-88ba8.webp'
@@ -320,11 +321,19 @@ export const ColaboradorDashboard: React.FC<ColaboradorDashboardProps> = ({
 
                     {/* Detalhes de Assinatura se houver */}
                     {isAssinado && doc.minhaAssinatura && (
-                      <div className="p-2 bg-emerald-50 rounded border border-emerald-200 text-[11px] text-emerald-900">
-                        Assinado em{' '}
-                        <strong>
-                          {new Date(doc.minhaAssinatura.data_hora).toLocaleDateString('pt-BR')}
-                        </strong>
+                      <div className="p-2 bg-emerald-50 rounded border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
+                        <div>
+                          Assinado em{' '}
+                          <strong>
+                            {new Date(doc.minhaAssinatura.data_hora).toLocaleDateString('pt-BR')}
+                          </strong>
+                        </div>
+                        {doc.minhaAssinatura.instagram && (
+                          <div className="flex items-center gap-1 text-[10px] text-pink-700 font-mono">
+                            <Instagram className="w-3 h-3 text-pink-600" />
+                            <span>Instagram: {doc.minhaAssinatura.instagram}</span>
+                          </div>
+                        )}
                       </div>
                     )}
                   </CardContent>
